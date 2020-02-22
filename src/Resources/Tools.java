@@ -6,7 +6,7 @@ import java.util.Random;
  * @Project Tools
  * @Course CSIS-2430
  */
-public class Tools {
+class Tools {
     //Tools
     protected Random random = new Random(); //to be a random number generator
 }

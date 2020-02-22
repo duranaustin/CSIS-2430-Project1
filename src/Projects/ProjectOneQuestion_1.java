@@ -7,7 +7,7 @@ import java.util.HashSet;
  * @Project 1 Question 1
  * @Course CSIS-2430
  */
-public class ProjectOneQuestionOne extends Calculate {
+public class ProjectOneQuestion_1 extends Calculate {
     //Sets -- mutable
     HashSet<Integer> set = new HashSet(); //for Q1 'set of n elements'
     HashSet<Integer> subSetA = new HashSet<>(); //for Q1 'subset A'
@@ -26,7 +26,7 @@ public class ProjectOneQuestionOne extends Calculate {
     HashSet<Integer> Q1answerNeedsInfoTwo; //for Q1 - 'A (+) B'
 
 
-    public ProjectOneQuestionOne(){
+    public ProjectOneQuestion_1(){
         setSet(); //hardcoded integer set from 0-9
         setSubsets(); //subset A and subset B are set randomly
         initAnswerSets(); //initialize answer sets

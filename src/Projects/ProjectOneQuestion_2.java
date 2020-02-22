@@ -7,7 +7,7 @@ import java.util.HashSet;
  * @Project 1 Question 2
  * @Course CSIS-2430
  */
-public class ProjectOneQuestionTwo extends Calculate {
+public class ProjectOneQuestion_2 extends Calculate {
     //Sets -- mutable
     HashSet<Integer> setOfUniverseInteger = new HashSet(); //for Q2 'same universal set'
     HashSet<Integer> multiSetA = new HashSet(); //for Q2 'multiset A'
@@ -25,7 +25,7 @@ public class ProjectOneQuestionTwo extends Calculate {
     HashSet<Integer> Q2answerNeedsInfoTwo; //for Q2 - 'A + B'
 
 
-    public ProjectOneQuestionTwo(){
+    public ProjectOneQuestion_2(){
         setSetOfUniverseInteger(); //hardcoded set of universe Integers
         setMultiSets(); // hardcoded multisets taken from set of universe integer
         initAnswerSets(); //initialize answer sets

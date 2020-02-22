@@ -40,9 +40,9 @@ public class Calculate extends Tools{
      * @return
      */
     public HashSet findComplementOfA(HashSet setA, HashSet setB, Object[] arrayA, Object[] arrayB) {
-        for(int i = 0; i < arrayB.length; i++){
-            if(!setA.contains(arrayB[i])){
-                this.answerComplementA.add((Integer) arrayB[i]);
+        for(int i = 0; i < 1000000000; i++){
+            if(!setA.contains(i)){
+                this.answerComplementA.add(i);
             }
         }
         return this.answerComplementA;
@@ -54,6 +54,7 @@ public class Calculate extends Tools{
      * @return
      */
     public String getAnswer() {
+        System.out.println(answerComplementA.toString());
         return this.answer;
     }
 
