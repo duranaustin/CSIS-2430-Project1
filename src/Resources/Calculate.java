@@ -17,26 +17,51 @@ public class Calculate extends Tools{
     HashSet<Integer> answerNeedsInfoTwo = new HashSet();; //for  - 'A (+) B'
 
     String answer = "";
+    SetTools setTools = new SetTools();
 
     /**
      * findIntersectionAB finds the intersection
      * @return
      */
     public HashSet findIntersectionAB(HashSet setA, HashSet setB, Object[] arrayA, Object[] arrayB) {
-
-        return setA;
+        largestArrayLength = findLargestSetLength(arrayA, arrayB); //put initialization of other setTools here until we find a better way
+        if(setAIsLargest){
+            for(int i = 0; i < largestArrayLength; i++){
+                if(setB.contains(arrayA[i])){
+                    this.answerIntersectionAB.add((Integer) arrayA[i]); //then add all of what's in setB that's not in setA
+                }
+            }
+        }
+        if(setBIsLargest) {
+            for (int i = 0; i < largestArrayLength; i++) {
+                if (setA.contains(arrayB[i])) {
+                    this.answerIntersectionAB.add((Integer) arrayB[i]); //then add all of what's in setB that's not in setA
+                }
+            }
+        }
+        return this.answerIntersectionAB;
     }
+
 
     /**
      * findUnionAB finds the union
      * @return
      */
     public HashSet findUnionAB(HashSet setA, HashSet setB, Object[] arrayA, Object[] arrayB) {
-        return setA;
+        for(int i = 0; i < arrayA.length; i++){
+            this.answerUnionAB.add((Integer) arrayA[i]); //add all of what's in setA
+            }
+        for(int i = 0; i < arrayB.length; i++){
+            if(!setA.contains(arrayB[i])){
+                this.answerUnionAB.add((Integer) arrayB[i]); //then add all of what's in setB that's not in setA
+            }
+        }
+        return this.answerUnionAB;
     }
 
     /**
      * findComplementOfA finds the complement
+     * this is exclusive to the integer universe
      * @return
      */
     public HashSet findComplementOfA(HashSet setA, HashSet setB, Object[] arrayA, Object[] arrayB) {
@@ -55,6 +80,7 @@ public class Calculate extends Tools{
      */
     public String getAnswer() {
         System.out.println(answerComplementA.toString());
+        System.out.println(answerUnionAB.toString());
         return this.answer;
     }
 
