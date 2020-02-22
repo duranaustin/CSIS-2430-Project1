@@ -73,21 +73,4 @@ public class Calculate extends Tools{
         return this.answerComplementA;
         //use bitstrings or boolean arrays for comparison.
     }
-
-    /**
-     * getAnswer
-     * @return
-     */
-    public String getAnswer() {
-        System.out.println(answerComplementA.toString());
-        System.out.println(answerUnionAB.toString());
-        return this.answer;
-    }
-
-    /**
-     * getAnswer
-     */
-    public void setAnswer(String answer) {
-        this.answer = answer;
-    }
 }

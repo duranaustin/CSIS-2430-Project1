@@ -75,4 +75,31 @@ public class ProjectOneQuestion_1 extends Calculate {
         subSetB.add(1);
         subsetbArray = subSetB.toArray(); //initialize subsetbArray with subSetB
     }
+
+    /**
+     * getAnswer
+     * @return
+     */
+    public void getAnswer() {
+        System.out.println("Question 1- 'Complement of A' used Set: ");
+        System.out.println(subSetA.toString());
+        System.out.println("Question 1- 'Complement of A' answer was: ");
+        System.out.println(Q1answerComplementA.toString());
+        System.out.println();
+        System.out.println();
+        System.out.println("Question 1- 'A UNION B' used Sets: ");
+        System.out.println(subSetA.toString());
+        System.out.println(subSetB.toString());
+        System.out.println("Question 1- 'A UNION B' answer was: ");
+        System.out.println(Q1answerUnionAB.toString());
+        System.out.println();
+        System.out.println();
+        System.out.println("Question 1- 'A INTERSECTION B' used Sets: ");
+        System.out.println(subSetA.toString());
+        System.out.println(subSetB.toString());
+        System.out.println("Question 1- 'A INTERSECTION B' answer was: ");
+        System.out.println(Q1answerIntersectionAB.toString());
+        System.out.println();
+        System.out.println();
+    }
 }

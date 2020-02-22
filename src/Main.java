@@ -8,8 +8,8 @@ public class Main {
 
         //Object Creation of Each Question
         ProjectOneQuestion_1 questionOne = new ProjectOneQuestion_1();
-        ProjectOneQuestion_2 questionTwo = new ProjectOneQuestion_2();
-        ProjectOneQuestion_3 questionThree = new ProjectOneQuestion_3();
+//        ProjectOneQuestion_2 questionTwo = new ProjectOneQuestion_2();
+//        ProjectOneQuestion_3 questionThree = new ProjectOneQuestion_3();
 //
 //        //Set Sets A and B for each question
 //        questionOne.setSetA();
@@ -21,7 +21,7 @@ public class Main {
 //
         //Get the answer for each question
         questionOne.getAnswer();
-        questionTwo.getAnswer();
-        questionThree.getAnswer();
+//        questionTwo.getAnswer();
+//        questionThree.getAnswer();
     }
 }
