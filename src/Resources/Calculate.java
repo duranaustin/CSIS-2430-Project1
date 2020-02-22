@@ -40,7 +40,7 @@ public class Calculate extends Tools{
      * @return
      */
     public HashSet findComplementOfA(HashSet setA, HashSet setB, Object[] arrayA, Object[] arrayB) {
-        for(int i = 0; i < 1000000000; i++){
+        for(int i = 0; i < 15; i++){
             if(!setA.contains(i)){
                 this.answerComplementA.add(i);
             }
