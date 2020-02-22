@@ -8,9 +8,5 @@ reports
 *.iws
 out
 .idea
-reports/enrollments/uiScreenshots/enrollSmokeTest/001-001-Step_1__log_into_hub-failure.png
-reports/enrollments/uiScreenshots/enrollSmokeTest/001-001-Step_1__log_into_hub-failure.html
 gradle.properties
-gradle.properties
-src/test/groovy/Web/ui/DotComCards/EnergyCardSpec.groovy
-gradle.properties
+
