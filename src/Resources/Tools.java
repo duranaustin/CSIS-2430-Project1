@@ -8,5 +8,5 @@ import java.util.Random;
  */
 public class Tools {
     //Tools
-    public Random random = new Random(); //to be a random number generator
+    protected Random random = new Random(); //to be a random number generator
 }

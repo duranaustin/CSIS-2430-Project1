@@ -30,9 +30,9 @@ public class ProjectOneQuestionOne extends Calculate {
         setSet(); //hardcoded integer set from 0-9
         setSubsets(); //subset A and subset B are set randomly
         initAnswerSets(); //initialize answer sets
-        findComplementOfA(); //find answer to question 1.
-        findUnionAB(); //find answer to question 2.
-        findIntersectionAB(); //find answer to question 3.
+        Q1answerComplementA = findComplementOfA(subSetA, subSetB, subsetaArray, subsetbArray); //find answer to question 1.
+        Q1answerUnionAB = findUnionAB(subSetA, subSetB, subsetaArray, subsetbArray); //find answer to question 2.
+        Q1answerIntersectionAB = findIntersectionAB(subSetA, subSetB, subsetaArray, subsetbArray); //find answer to question 3.
     }
 
     /**

@@ -29,9 +29,9 @@ public class ProjectOneQuestionTwo extends Calculate {
         setSetOfUniverseInteger(); //hardcoded set of universe Integers
         setMultiSets(); // hardcoded multisets taken from set of universe integer
         initAnswerSets(); //initialize answer sets
-        findComplementOfA(); //find answer to question 1.
-        findUnionAB(); //find answer to question 2.
-        findIntersectionAB(); //find answer to question 3.
+        findComplementOfA(multiSetA, multiSetB, multiSetaArray, multiSetbArray); //find answer to question 1.
+        findUnionAB(multiSetA, multiSetB, multiSetaArray, multiSetbArray); //find answer to question 2.
+        findIntersectionAB(multiSetA, multiSetB, multiSetaArray, multiSetbArray); //find answer to question 3.
     }
 
     /**

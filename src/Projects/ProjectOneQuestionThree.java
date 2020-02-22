@@ -25,9 +25,9 @@ public class ProjectOneQuestionThree extends Calculate {
     public ProjectOneQuestionThree(){
         setFuzzySets();
         initAnswerSets(); //initialize answer sets
-        findComplementOfA(); //find answer to question 1.
-        findUnionAB(); //find answer to question 2.
-        findIntersectionAB(); //find answer to question 3.
+        findComplementOfA(fuzzySetA, fuzzySetB, fuzzySetaArray, fuzzySetbArray); //find answer to question 1.
+        findUnionAB(fuzzySetA, fuzzySetB, fuzzySetaArray, fuzzySetbArray); //find answer to question 2.
+        findIntersectionAB(fuzzySetA, fuzzySetB, fuzzySetaArray, fuzzySetbArray); //find answer to question 3.
     }
 
     private void setFuzzySets(){
