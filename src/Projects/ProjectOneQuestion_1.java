@@ -74,9 +74,6 @@ public class ProjectOneQuestion_1 extends Calculate {
         for(int i = randomSubSetLength; i != setArray.length; i++){
             subSetB.add((Integer) setArray[i]); //set subSet B with last random part of 'setArray'
         }
-        subSetB.add(1);
-        subSetB.add(2);
-        subSetB.add(3);
         subsetbArray = subSetB.toArray(); //initialize subsetbArray with subSetB
     }
 

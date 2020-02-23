@@ -1,6 +1,7 @@
 package Projects;
 import Resources.Calculate;
-import java.util.HashSet;
+
+import java.util.ArrayList;
 
 /**
  * @Authors: Jorge Jimenez, Pauline Makoma, Christian Makoma, Austin Duran
@@ -9,9 +10,9 @@ import java.util.HashSet;
  */
 public class ProjectOneQuestion_2 extends Calculate {
     //Sets -- mutable
-    HashSet<Integer> setOfUniverseInteger = new HashSet(); //for Q2 'same universal set'
-    HashSet<Integer> multiSetA = new HashSet(); //for Q2 'multiset A'
-    HashSet<Integer> multiSetB = new HashSet(); //for Q2 'multiset B'
+    ArrayList setOfUniverseInteger = new ArrayList(); //for Q2 'same universal set'
+    ArrayList multiSetA = new ArrayList(); //for Q2 'multiset A'
+    ArrayList multiSetB = new ArrayList(); //for Q2 'multiset B'
 
     //Arrays -- immutable once set
     Object[] setOfUniverseIntegerArray; //for Q2 'same universal set'
@@ -19,19 +20,20 @@ public class ProjectOneQuestion_2 extends Calculate {
     Object[] multiSetbArray; //for Q2 'multiset B'
 
     //Question/Computer Project 2 - Multisets
-    HashSet<Integer> Q2answerUnionAB; //for Q2 - 'A U B'
-    HashSet<Integer> Q2answerIntersectionAB; //for Q2 - 'A ^ B'
-    HashSet<Integer> Q2answerNeedsInfo; //for Q2 - 'A - B'
-    HashSet<Integer> Q2answerNeedsInfoTwo; //for Q2 - 'A + B'
+    ArrayList Q2answerUnionAB; //for Q2 - 'A U B'
+    ArrayList Q2answerIntersectionAB; //for Q2 - 'A ^ B'
+    ArrayList Q2answerDifferenceAB; //for Q2 - 'A - B'
+    ArrayList Q2answerAPlusB; //for Q2 - 'A + B'
 
 
     public ProjectOneQuestion_2(){
         setSetOfUniverseInteger(); //hardcoded set of universe Integers
         setMultiSets(); // hardcoded multisets taken from set of universe integer
         initAnswerSets(); //initialize answer sets
-        findComplementOfA(multiSetA, multiSetB, multiSetaArray, multiSetbArray); //find answer to question 1.
-        findUnionAB(multiSetA, multiSetB, multiSetaArray, multiSetbArray); //find answer to question 2.
-        findIntersectionAB(multiSetA, multiSetB, multiSetaArray, multiSetbArray); //find answer to question 3.
+        Q2answerUnionAB = findUnionABArray(multiSetA, multiSetB, multiSetaArray, multiSetbArray); //find answer to Q2 - 'A U B'
+        Q2answerIntersectionAB = findIntersectionABArray(multiSetA, multiSetB, multiSetaArray, multiSetbArray); //find answer to Q2 - 'A ^ B'
+        Q2answerDifferenceAB = findDifferenceABArray(multiSetA, multiSetB, multiSetaArray, multiSetbArray); //find answer to Q2 - 'A - B'
+        Q2answerAPlusB = findAPlusBArray(multiSetA, multiSetB, multiSetaArray, multiSetbArray); //find answer to Q2 - 'A + B'
     }
 
     /**
@@ -39,10 +41,10 @@ public class ProjectOneQuestion_2 extends Calculate {
      */
     private void initAnswerSets() {
         //Question/Computer Project 2 - Multisets
-        Q2answerUnionAB = new HashSet();
-        Q2answerIntersectionAB = new HashSet();
-        Q2answerNeedsInfo = new HashSet();
-        Q2answerNeedsInfoTwo = new HashSet();
+        Q2answerUnionAB = new ArrayList();
+        Q2answerIntersectionAB = new ArrayList();
+        Q2answerDifferenceAB= new ArrayList();
+        Q2answerAPlusB = new ArrayList();
     }
 
     /**
@@ -50,25 +52,69 @@ public class ProjectOneQuestion_2 extends Calculate {
      * setOfUniverseIntegerArray is also initialized
      */
     public void setSetOfUniverseInteger() {
-        for (int i = 0; i < 1000000000; i++){
+        for (int i = 0; i < 10; i++){
             setOfUniverseInteger.add(i);
         }
         setOfUniverseIntegerArray = setOfUniverseInteger.toArray();
     }
 
     /**
-     * setSetOfUniverseInteger sets the universal set of type integers
-     * setOfUniverseIntegerArray is also initialized
+     * setMultiSets sets multiSet a and multiSet b with random integers out of the main set
+     * multiSetArrayA is also initialized
+     * multiSetArrayB is also initialized
      */
     public void setMultiSets() {
-        int randomMultiSetLength = random.nextInt(setOfUniverseIntegerArray.length);
-        for(int i = 0; i < randomMultiSetLength; i++){
-            multiSetA.add((Integer) setOfUniverseIntegerArray[i]); //set multiSet A with with duplicates of universe Integer
+        int randomSubSetLength = random.nextInt(setOfUniverseIntegerArray.length);
+        for(int i = 0; i < randomSubSetLength; i++){
+            multiSetA.add((Integer) setOfUniverseIntegerArray[i]); //set subSet A with first random part of 'setArray'
         }
+        multiSetA.add(0);
+        multiSetA.add(1);
+        multiSetA.add(2);
+        multiSetA.add(3);
         multiSetaArray = multiSetA.toArray(); //initialize subsetaArray with subSetA
-        for(int i = randomMultiSetLength; i != multiSetaArray.length; i++){
-            multiSetB.add((Integer) multiSetaArray[i]); //set subSet B with last random part of 'setArray'
+        for(int i = randomSubSetLength; i != setOfUniverseIntegerArray.length; i++){
+            multiSetB.add((Integer) setOfUniverseIntegerArray[i]); //set subSet B with last random part of 'setArray'
         }
-        multiSetbArray = multiSetB.toArray(); //initialize subsetbArray with subSetB
+        multiSetB.add(4);
+        multiSetB.add(5);
+        multiSetB.add(6);
+        multiSetB.add(7);
+        multiSetbArray= multiSetB.toArray(); //initialize subsetbArray with subSetB
+    }
+
+    /**
+     * getAnswer
+     * @return
+     */
+    public void getAnswer() {
+        System.out.println("Question 2 - 'A UNION B' used Sets: ");
+        System.out.println("A = " +multiSetA.toString());
+        System.out.println("B = " +multiSetB.toString());
+        System.out.println("Question 2 - 'A UNION B' answer is: ");
+        System.out.println(Q2answerUnionAB.toString());
+        System.out.println();
+        System.out.println();
+        System.out.println("Question 2 - 'A INTERSECTION B' used Sets: ");
+        System.out.println("A = " +multiSetA.toString());
+        System.out.println("B = " +multiSetB.toString());
+        System.out.println("Question 2 - 'A INTERSECTION B' answer is: ");
+        System.out.println(Q2answerIntersectionAB.toString());
+        System.out.println();
+        System.out.println();
+        System.out.println("Question 2 - 'A DIFFERENCE B' used Sets: ");
+        System.out.println("A = " +multiSetA.toString());
+        System.out.println("B = " +multiSetB.toString());
+        System.out.println("Question 2 - 'A DIFFERENCE B' answer is: ");
+        System.out.println(Q2answerDifferenceAB.toString());
+        System.out.println();
+        System.out.println();
+        System.out.println("Question 2 - 'A + B' used Sets: ");
+        System.out.println("A = " +multiSetA.toString());
+        System.out.println("B = " +multiSetB.toString());
+        System.out.println("Question 2 - 'A + B' answer is: ");
+        System.out.println(Q2answerAPlusB.toString());
+        System.out.println();
+        System.out.println();
     }
 }

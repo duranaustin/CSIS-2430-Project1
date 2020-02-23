@@ -8,12 +8,12 @@ public class Main {
 
         //Object Creation of Each Question
         ProjectOneQuestion_1 questionOne = new ProjectOneQuestion_1();
-//        ProjectOneQuestion_2 questionTwo = new ProjectOneQuestion_2();
+        ProjectOneQuestion_2 questionTwo = new ProjectOneQuestion_2();
 //        ProjectOneQuestion_3 questionThree = new ProjectOneQuestion_3();
 
         //Get the answer for each question
         questionOne.getAnswer();
-//        questionTwo.getAnswer();
+        questionTwo.getAnswer();
 //        questionThree.getAnswer();
     }
 }

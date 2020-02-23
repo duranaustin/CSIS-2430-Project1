@@ -1,5 +1,6 @@
 package Resources;
 
+import java.util.ArrayList;
 import java.util.HashSet;
 
 /**
@@ -12,8 +13,13 @@ public class Calculate extends Tools{
     //Question/Computer Project 1 - Subsets
     HashSet<Integer> answerComplementA = new HashSet(); //for - '`A'
     HashSet<Integer> answerUnionAB = new HashSet(); //for - 'A U B'
+    ArrayList answerUnionABArray = new ArrayList(); //for - 'A U B'
+    HashSet<Integer> answerAPlusB = new HashSet(); //for - 'A + B'
+    ArrayList answerAPlusBArray = new ArrayList(); //for - 'A + B'
     HashSet<Integer> answerIntersectionAB = new HashSet(); //for - 'A ^ B'
+    ArrayList answerIntersectionABArray = new ArrayList(); //for - 'A ^ B'
     HashSet<Integer> answerDifferenceAB = new HashSet(); //for - 'A - B'
+    ArrayList answerDifferenceABArray = new ArrayList(); //for - 'A - B'
     HashSet<Integer> answerDifferenceABForSymmetric = new HashSet();; //for - 'A - B' for symmetric calculation
     HashSet<Integer> answerDifferenceBA = new HashSet(); //for - 'B - A'
     HashSet<Integer> answerSymmetricDifferenceAB = new HashSet(); //for  - 'A (+) B'
@@ -63,6 +69,22 @@ public class Calculate extends Tools{
     }
 
     /**
+     * findUnionABArray finds the union for Arrays
+     * @return
+     */
+    public ArrayList findUnionABArray(ArrayList setA, ArrayList setB, Object[] arrayA, Object[] arrayB) {
+        for(int i = 0; i < arrayA.length; i++){
+            this.answerUnionABArray.add((Integer) arrayA[i]); //add all of what's in setA
+        }
+        for(int i = 0; i < arrayB.length; i++){
+            if(!setA.contains(arrayB[i])){
+                this.answerUnionABArray.add((Integer) arrayB[i]); //then add all of what's in setB that's not in setA
+            }
+        }
+        return this.answerUnionABArray;
+    }
+
+    /**
      * findUnionAB finds the union
      * @return
      */
@@ -102,6 +124,29 @@ public class Calculate extends Tools{
     }
 
     /**
+     * findIntersectionAB finds the intersection
+     * @return
+     */
+    public ArrayList findIntersectionABArray(ArrayList setA, ArrayList setB, Object[] arrayA, Object[] arrayB) {
+        largestArrayLength = findLargestSetLength(arrayA, arrayB); //put initialization of other setTools here until we find a better way
+        if(setAIsLargest){
+            for(int i = 0; i < largestArrayLength; i++){
+                if(setB.contains(arrayA[i])){
+                    this.answerIntersectionABArray.add((Integer) arrayA[i]); //then add all of what's in setB that's not in setA
+                }
+            }
+        }
+        if(setBIsLargest) {
+            for (int i = 0; i < largestArrayLength; i++) {
+                if (setA.contains(arrayB[i])) {
+                    this.answerIntersectionABArray.add((Integer) arrayB[i]); //then add all of what's in setB that's not in setA
+                }
+            }
+        }
+        return this.answerIntersectionABArray;
+    }
+
+    /**
      * findDifferenceAB finds the difference of B from A
      * @return
      */
@@ -112,6 +157,19 @@ public class Calculate extends Tools{
             }
         }
         return this.answerDifferenceAB;
+    }
+
+    /**
+     * findDifferenceABArray finds the difference of B from A for arrays
+     * @return
+     */
+    public ArrayList findDifferenceABArray(ArrayList setA, ArrayList setB, Object[] arrayA, Object[] arrayB) {
+        for(int i = 0; i < arrayA.length; i++){
+            if(!setB.contains(arrayA[i])){
+                this.answerDifferenceABArray.add((Integer) arrayA[i]); //add what is unique to setA that is not in setB
+            }
+        }
+        return this.answerDifferenceABArray;
     }
 
     /**
@@ -152,5 +210,33 @@ public class Calculate extends Tools{
         tempDifferenceAB = findDifferenceABforSymmetric(setA,setB, arrayA, arrayB);
         tempDifferenceABArray = tempDifferenceAB.toArray();
         return answerSymmetricDifferenceAB = findUnionABForSymmetric(tempDifferenceAB,tempDifferenceBA, tempDifferenceABArray, tempDifferenceBAArray);
+    }
+
+    /**
+     * findAPlusB adds all of a and all of B to one set
+     * @return
+     */
+    public HashSet findAPlusB(HashSet setA, HashSet setB, Object[] arrayA, Object[] arrayB) {
+        for(int i = 0; i < arrayA.length; i++){
+            this.answerAPlusB.add((Integer) arrayA[i]); //add all of what's in setA
+        }
+        for(int i = 0; i < arrayB.length; i++){
+                this.answerAPlusB.add((Integer) arrayB[i]); //then add all of what's in setB
+        }
+        return this.answerAPlusB;
+    }
+
+    /**
+     * findAPlusBArray adds all of a and all of B to one set for arrays
+     * @return
+     */
+    public ArrayList findAPlusBArray(ArrayList setA, ArrayList setB, Object[] arrayA, Object[] arrayB) {
+        for(int i = 0; i < arrayA.length; i++){
+            this.answerAPlusBArray.add((Integer) arrayA[i]); //add all of what's in setA
+        }
+        for(int i = 0; i < arrayB.length; i++){
+            this.answerAPlusBArray.add((Integer) arrayB[i]); //then add all of what's in setB
+        }
+        return this.answerAPlusBArray;
     }
 }
