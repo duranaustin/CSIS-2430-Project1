@@ -23,7 +23,7 @@ public class ProjectOneQuestion_1 extends Calculate {
     HashSet<Integer> Q1answerUnionAB; //for Q1 - 'A U B'
     HashSet<Integer> Q1answerIntersectionAB; //for Q1 - 'A ^ B'
     HashSet<Integer> Q1answerDifferenceAB; //for Q1 - 'A - B'
-    HashSet<Integer> Q1answerNeedsInfoTwo; //for Q1 - 'A (+) B'
+    HashSet<Integer> Q1answerSymmetricDifferenceAB; //for Q1 - 'A (+) B'
 
 
     public ProjectOneQuestion_1(){
@@ -34,6 +34,7 @@ public class ProjectOneQuestion_1 extends Calculate {
         Q1answerUnionAB = findUnionAB(subSetA, subSetB, subsetaArray, subsetbArray); //find answer to Q1 - 'A U B'
         Q1answerIntersectionAB = findIntersectionAB(subSetA, subSetB, subsetaArray, subsetbArray); //find answer to Q1 - 'A ^ B'
         Q1answerDifferenceAB = findDifferenceAB(subSetA, subSetB, subsetaArray, subsetbArray); //find answer to Q1 - 'A - B'
+        Q1answerSymmetricDifferenceAB = findSymmetricDifferenceAB(subSetA, subSetB, subsetaArray, subsetbArray); //find answer to Q1 - 'A (+) B'
     }
 
     /**
@@ -45,7 +46,7 @@ public class ProjectOneQuestion_1 extends Calculate {
         Q1answerUnionAB = new HashSet();
         Q1answerIntersectionAB = new HashSet();
         Q1answerDifferenceAB = new HashSet();
-        Q1answerNeedsInfoTwo = new HashSet();
+        Q1answerSymmetricDifferenceAB = new HashSet();
     }
 
     /**
@@ -84,31 +85,38 @@ public class ProjectOneQuestion_1 extends Calculate {
      * @return
      */
     public void getAnswer() {
-        System.out.println("Question 1- 'Complement of A' used Set: ");
+        System.out.println("Question 1 - 'Complement of A' used Set: ");
         System.out.println(subSetA.toString());
-        System.out.println("Question 1- 'Complement of A' answer is: ");
+        System.out.println("Question 1 - 'Complement of A' answer is: ");
         System.out.println("A = " + Q1answerComplementA.toString());
         System.out.println();
         System.out.println();
-        System.out.println("Question 1- 'A UNION B' used Sets: ");
+        System.out.println("Question 1 - 'A UNION B' used Sets: ");
         System.out.println("A = " +subSetA.toString());
         System.out.println("B = " +subSetB.toString());
-        System.out.println("Question 1- 'A UNION B' answer is: ");
+        System.out.println("Question 1 - 'A UNION B' answer is: ");
         System.out.println(Q1answerUnionAB.toString());
         System.out.println();
         System.out.println();
-        System.out.println("Question 1- 'A INTERSECTION B' used Sets: ");
+        System.out.println("Question 1 - 'A INTERSECTION B' used Sets: ");
         System.out.println("A = " +subSetA.toString());
         System.out.println("B = " +subSetB.toString());
-        System.out.println("Question 1- 'A INTERSECTION B' answer is: ");
+        System.out.println("Question 1 - 'A INTERSECTION B' answer is: ");
         System.out.println(Q1answerIntersectionAB.toString());
         System.out.println();
         System.out.println();
-        System.out.println("Question 1- 'A DIFFERENCE B' used Sets: ");
+        System.out.println("Question 1 - 'A DIFFERENCE B' used Sets: ");
         System.out.println("A = " +subSetA.toString());
         System.out.println("B = " +subSetB.toString());
-        System.out.println("Question 1- 'A DIFFERENCE B' answer is: ");
+        System.out.println("Question 1 - 'A DIFFERENCE B' answer is: ");
         System.out.println(Q1answerDifferenceAB.toString());
+        System.out.println();
+        System.out.println();
+        System.out.println("Question 1 - 'A SYMMETRIC DIFFERENCE B' used Sets: ");
+        System.out.println("A = " +subSetA.toString());
+        System.out.println("B = " +subSetB.toString());
+        System.out.println("Question 1 - 'A SYMMETRIC DIFFERENCE B' answer is: ");
+        System.out.println(Q1answerSymmetricDifferenceAB.toString());
         System.out.println();
         System.out.println();
     }
