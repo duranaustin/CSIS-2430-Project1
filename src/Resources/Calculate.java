@@ -13,11 +13,41 @@ public class Calculate extends Tools{
     HashSet<Integer> answerComplementA = new HashSet(); //for - '`A'
     HashSet<Integer> answerUnionAB = new HashSet();; //for - 'A U B'
     HashSet<Integer> answerIntersectionAB = new HashSet();; //for - 'A ^ B'
-    HashSet<Integer> answerNeedsInfo = new HashSet();; //for - 'A - B'
+    HashSet<Integer> answerDifferenceAB = new HashSet();; //for - 'A - B'
     HashSet<Integer> answerNeedsInfoTwo = new HashSet();; //for  - 'A (+) B'
 
     String answer = "";
     SetTools setTools = new SetTools();
+
+    /**
+     * findComplementOfA finds the complement
+     * this is exclusive to the integer universe
+     * @return
+     */
+    public HashSet findComplementOfA(HashSet setA, HashSet setB, Object[] arrayA, Object[] arrayB) {
+        for(int i = 0; i < 15; i++){
+            if(!setA.contains(i)){
+                this.answerComplementA.add(i);
+            }
+        }
+        return this.answerComplementA;
+    }
+
+    /**
+     * findUnionAB finds the union
+     * @return
+     */
+    public HashSet findUnionAB(HashSet setA, HashSet setB, Object[] arrayA, Object[] arrayB) {
+        for(int i = 0; i < arrayA.length; i++){
+            this.answerUnionAB.add((Integer) arrayA[i]); //add all of what's in setA
+        }
+        for(int i = 0; i < arrayB.length; i++){
+            if(!setA.contains(arrayB[i])){
+                this.answerUnionAB.add((Integer) arrayB[i]); //then add all of what's in setB that's not in setA
+            }
+        }
+        return this.answerUnionAB;
+    }
 
     /**
      * findIntersectionAB finds the intersection
@@ -42,35 +72,16 @@ public class Calculate extends Tools{
         return this.answerIntersectionAB;
     }
 
-
     /**
-     * findUnionAB finds the union
+     * findDifferenceAB finds the difference of B from A
      * @return
      */
-    public HashSet findUnionAB(HashSet setA, HashSet setB, Object[] arrayA, Object[] arrayB) {
+    public HashSet findDifferenceAB(HashSet setA, HashSet setB, Object[] arrayA, Object[] arrayB) {
         for(int i = 0; i < arrayA.length; i++){
-            this.answerUnionAB.add((Integer) arrayA[i]); //add all of what's in setA
-            }
-        for(int i = 0; i < arrayB.length; i++){
-            if(!setA.contains(arrayB[i])){
-                this.answerUnionAB.add((Integer) arrayB[i]); //then add all of what's in setB that's not in setA
+            if(!setB.contains(arrayA[i])){
+                this.answerDifferenceAB.add((Integer) arrayA[i]); //add what is unique to setA that is not in setB
             }
         }
-        return this.answerUnionAB;
-    }
-
-    /**
-     * findComplementOfA finds the complement
-     * this is exclusive to the integer universe
-     * @return
-     */
-    public HashSet findComplementOfA(HashSet setA, HashSet setB, Object[] arrayA, Object[] arrayB) {
-        for(int i = 0; i < 15; i++){
-            if(!setA.contains(i)){
-                this.answerComplementA.add(i);
-            }
-        }
-        return this.answerComplementA;
-        //use bitstrings or boolean arrays for comparison.
+        return this.answerDifferenceAB;
     }
 }

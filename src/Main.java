@@ -10,15 +10,7 @@ public class Main {
         ProjectOneQuestion_1 questionOne = new ProjectOneQuestion_1();
 //        ProjectOneQuestion_2 questionTwo = new ProjectOneQuestion_2();
 //        ProjectOneQuestion_3 questionThree = new ProjectOneQuestion_3();
-//
-//        //Set Sets A and B for each question
-//        questionOne.setSetA();
-//        questionOne.setSetB();
-//        questionTwo.setSetA();
-//        questionTwo.setSetB();
-//        questionThree.setSetA();
-//        questionThree.setSetB();
-//
+
         //Get the answer for each question
         questionOne.getAnswer();
 //        questionTwo.getAnswer();
