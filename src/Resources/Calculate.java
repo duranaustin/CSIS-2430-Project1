@@ -1,7 +1,6 @@
 package Resources;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.HashSet;
 
 /**
@@ -13,15 +12,15 @@ public class Calculate extends Tools{
 
     //Question/Computer Project 1 - Subsets
     HashSet<Integer> answerComplementA = new HashSet(); //for - '`A'
-    HashMap answerComplementAFuzzy = new HashMap(); //for - '`A'
+    HashSet<Double> answerComplementAFuzzy = new HashSet(); //for - '`A'
     HashSet<Integer> answerUnionAB = new HashSet(); //for - 'A U B'
     ArrayList answerUnionABArray = new ArrayList(); //for - 'A U B'
-    HashMap answerUnionABFuzzy = new HashMap(); //for - 'A U B'
+    HashSet<Double> answerUnionABFuzzy = new HashSet(); //for - 'A U B'
     HashSet<Integer> answerAPlusB = new HashSet(); //for - 'A + B'
     ArrayList answerAPlusBArray = new ArrayList(); //for - 'A + B'
     HashSet<Integer> answerIntersectionAB = new HashSet(); //for - 'A ^ B'
     ArrayList answerIntersectionABArray = new ArrayList(); //for - 'A ^ B'
-    HashMap answerIntersectionABFuzzy = new HashMap(); //for - 'A ^ B'
+    HashSet answerIntersectionABFuzzy = new HashSet(); //for - 'A ^ B'
     HashSet<Integer> answerDifferenceAB = new HashSet(); //for - 'A - B'
     ArrayList answerDifferenceABArray = new ArrayList(); //for - 'A - B'
     HashSet<Integer> answerDifferenceABForSymmetric = new HashSet();; //for - 'A - B' for symmetric calculation
@@ -41,20 +40,6 @@ public class Calculate extends Tools{
 
     String answer = "";
     SetTools setTools = new SetTools();
-
-//    /**TODO
-//     * findComplementOfAFuzzy finds the complement for fuzzy sets
-//     * this is exclusive to the integer universe
-//     * @return
-//     */
-//    public HashMap findComplementOfAFuzzySet(HashMap setA, HashMap setB, Object[] arrayA, Object[] arrayB) {
-//        for(int i = 0; i < 15; i++){
-//            if(setA.get(i)){
-//                this.answerComplementAFuzzy.add(i);
-//            }
-//        }
-//        return this.answerComplementAFuzzy;
-//    }
 
     /**
      * findComplementOfA finds the complement
@@ -85,22 +70,6 @@ public class Calculate extends Tools{
         }
         return this.answerUnionAB;
     }
-
-//    /**TODO
-//     * findUnionAB finds the union for fuzzy sets
-//     * @return
-//     */
-//    public HashMap findUnionABFuzzySet(HashMap setA, HashMap setB, Object[] arrayA, Object[] arrayB) {
-//        for(int i = 0; i < arrayA.length; i++){
-//            this.answerUnionABFuzzy.add((Integer) arrayA[i]); //add all of what's in setA
-//        }
-//        for(int i = 0; i < arrayB.length; i++){
-//            if(!setA.contains(arrayB[i])){
-//                this.answerUnionABFuzzy.add((Integer) arrayB[i]); //then add all of what's in setB that's not in setA
-//            }
-//        }
-//        return this.answerUnionABFuzzy;
-//    }
 
     /**
      * findUnionABArray finds the union for Arrays
@@ -156,29 +125,6 @@ public class Calculate extends Tools{
         }
         return this.answerIntersectionAB;
     }
-
-//    /**TODO
-//     * findIntersectionAB finds the intersection
-//     * @return
-//     */
-//    public HashMap findIntersectionABFuzzySet(HashMap setA, HashMap setB, Object[] arrayA, Object[] arrayB) {
-//        largestArrayLength = findLargestSetLength(arrayA, arrayB); //put initialization of other setTools here until we find a better way
-//        if(setAIsLargest){
-//            for(int i = 0; i < largestArrayLength; i++){
-//                if(setB.contains(arrayA[i])){
-//                    this.answerIntersectionABFuzzy.add((Integer) arrayA[i]); //then add all of what's in setB that's not in setA
-//                }
-//            }
-//        }
-//        if(setBIsLargest) {
-//            for (int i = 0; i < largestArrayLength; i++) {
-//                if (setA.contains(arrayB[i])) {
-//                    this.answerIntersectionABFuzzy.add((Integer) arrayB[i]); //then add all of what's in setB that's not in setA
-//                }
-//            }
-//        }
-//        return this.answerIntersectionABFuzzy;
-//    }
 
     /**
      * findIntersectionAB finds the intersection
@@ -295,5 +241,70 @@ public class Calculate extends Tools{
             this.answerAPlusBArray.add((Integer) arrayB[i]); //then add all of what's in setB
         }
         return this.answerAPlusBArray;
+    }
+
+    /**
+     * 	The complement of a fuzzy set S is the set S', with the
+     *   degree of membership equals to 1 minus the degree of membership
+     *   of this element in s.
+     * @param fuzzySetA
+     * @param fuzzySetB
+     * @param fuzzySetaArray
+     * @param fuzzySetbArray
+     */
+    public HashSet findComplementOfAFuzzySet(HashSet<Double> fuzzySetA, HashSet<Double> fuzzySetB, Object[] fuzzySetaArray, Object[] fuzzySetbArray) {
+        for (Double el: fuzzySetA) {
+            answerComplementAFuzzy.add(1.0 - el);
+        }
+        return answerComplementAFuzzy;
+    }
+
+    /**
+     * Performs both the union and the intersection of A and B.
+     * Union:
+     * 	The union of two fuzzy sets S and T is the fuzzy
+     *  set, when the degree of membership of an element
+     *  in S u T is the maximum of the degrees of membership
+     *  of this element in S and T.
+     * @param fuzzySetA
+     * @param fuzzySetB
+     * @param fuzzySetaArray
+     * @param fuzzySetbArray
+     */
+    public HashSet findUnionABFuzzySet(HashSet<Double> fuzzySetA, HashSet<Double> fuzzySetB, Object[] fuzzySetaArray, Object[] fuzzySetbArray) {
+
+        double a;
+        double b;
+
+        for (int i = 0; i < fuzzySetaArray.length; i++) {
+            a = (double)fuzzySetaArray[i];
+            b = (double)fuzzySetbArray[i];
+
+            answerUnionABFuzzy.add(Math.max(a, b));
+        }
+        return answerUnionABFuzzy;
+    }
+
+    /**
+     * Intersection:
+     *  The intersection of two fuzzy sets S and T is the fuzzy set S n T,
+     *  where the degree of membership of an element in S n T is the minimum
+     *  of the degrees in S and in T.
+     * @param fuzzySetA
+     * @param fuzzySetB
+     * @param fuzzySetaArray
+     * @param fuzzySetbArray
+     */
+    public HashSet findIntersectionABFuzzySet(HashSet<Double> fuzzySetA, HashSet<Double> fuzzySetB, Object[] fuzzySetaArray, Object[] fuzzySetbArray) {
+
+        double a;
+        double b;
+
+        for (int i = 0; i < fuzzySetaArray.length; i++) {
+            a = (double)fuzzySetaArray[i];
+            b = (double)fuzzySetbArray[i];
+            answerIntersectionABFuzzy.add(Math.min(a, b));
+        }
+        return answerIntersectionABFuzzy;
     }
 }

@@ -1,6 +1,6 @@
 package Projects;
 import Resources.Calculate;
-import java.util.HashMap;
+import java.util.HashSet;
 
 /**
  * @Authors: Jorge Jimenez, Pauline Makoma, Christian Makoma, Austin Duran
@@ -9,9 +9,8 @@ import java.util.HashMap;
  */
 public class ProjectOneQuestion_3 extends Calculate {
     //Sets -- mutable
-    HashMap fuzzySet = new HashMap(); //for Q1 'set of n elements'
-    HashMap fuzzySetA = new HashMap<>(); //for Q1 'subset A'
-    HashMap fuzzySetB = new HashMap<>(); //for Q1 'subset B'
+    HashSet<Double> fuzzySetA = new HashSet(); //for Q1 'subset A'
+    HashSet<Double> fuzzySetB = new HashSet(); //for Q1 'subset B'
 
     //Arrays -- immutable once set
     Object[] fuzzySetArray; //for Q1 'set of n elements'
@@ -19,19 +18,18 @@ public class ProjectOneQuestion_3 extends Calculate {
     Object[] fuzzySetbArray; //for Q1 'subset B'
 
     //Question/Computer Project 1 - Subsets
-    HashMap Q3answerComplementA; //for Q1 - '`A'
-    HashMap Q3answerUnionAB; //for Q1 - 'A U B'
-    HashMap Q3answerIntersectionAB; //for Q1 - 'A ^ B'
+    HashSet Q3answerComplementA; //for Q1 - '`A'
+    HashSet Q3answerUnionAB; //for Q1 - 'A U B'
+    HashSet Q3answerIntersectionAB; //for Q1 - 'A ^ B'
 
 
 
     public ProjectOneQuestion_3(){
-        setFuzzySetA(); //hardcoded integer set from 0-9
-        setFuzzySetB(); //hardcoded integer set from 0-9
+        setFuzzySets(10);
         initAnswerSets(); //initialize answer sets
-//        Q3answerComplementA = findComplementOfAFuzzySet(fuzzySetA, fuzzySetB, fuzzySetaArray, fuzzySetbArray); //find answer to  Q3 - '`A'TODO
-//        Q3answerUnionAB = findUnionABFuzzySet(fuzzySetA, fuzzySetB, fuzzySetaArray, fuzzySetbArray); //find answer to Q3 - 'A U B'TODO
-//        Q3answerIntersectionAB = findIntersectionABFuzzySet(fuzzySetA, fuzzySetB, fuzzySetaArray, fuzzySetbArray); //find answer to Q3 - 'A ^ B'TODO
+        Q3answerComplementA = findComplementOfAFuzzySet(fuzzySetA, fuzzySetB, fuzzySetaArray, fuzzySetbArray); //find answer to  Q3 - '`A'TODO
+        Q3answerUnionAB = findUnionABFuzzySet(fuzzySetA, fuzzySetB, fuzzySetaArray, fuzzySetbArray); //find answer to Q3 - 'A U B'TODO
+        Q3answerIntersectionAB = findIntersectionABFuzzySet(fuzzySetA, fuzzySetB, fuzzySetaArray, fuzzySetbArray); //find answer to Q3 - 'A ^ B'TODO
     }
 
     /**
@@ -39,29 +37,22 @@ public class ProjectOneQuestion_3 extends Calculate {
      */
     private void initAnswerSets() {
         //Question/Computer Project 1 - Subsets
-        Q3answerComplementA = new HashMap();
-        Q3answerUnionAB = new HashMap();
-        Q3answerIntersectionAB = new HashMap();
+        Q3answerComplementA = new HashSet();
+        Q3answerUnionAB = new HashSet();
+        Q3answerIntersectionAB = new HashSet();
     }
 
-    /**
-     * setSet sets the Set from 0-9
-     * setArray is also initialized
-     */
-    public void setFuzzySetA() {
-        for (int i = 0; i < 10; i++){
-            fuzzySetA.put(random.nextDouble(),i);
-        }
-    }
 
     /**
-     * setSet sets the Set from 0-9
-     * setArray is also initialized
+     * 	Set the values of the elements of fuzzySetA and fuzzySetB to a value between 0 and 1.
      */
-    public void setFuzzySetB() {
-        for (int i = 0; i < 10; i++){
-            fuzzySet.put(random.nextDouble(),i);
+    private void setFuzzySets(int n){
+        for (int i = 0; i < n; i++) {
+            fuzzySetA.add(random.nextDouble());
+            fuzzySetB.add(random.nextDouble());
         }
+        fuzzySetaArray = fuzzySetA.toArray();
+        fuzzySetbArray = fuzzySetB.toArray();
     }
 
     /**
@@ -70,9 +61,9 @@ public class ProjectOneQuestion_3 extends Calculate {
      */
     public void getAnswer() {
         System.out.println("Question 3 - 'Complement of A' used Set: ");
-        System.out.println(fuzzySetA.toString());
+        System.out.println("A = " + fuzzySetA.toString());
         System.out.println("Question 3 - 'Complement of A' answer is: ");
-        System.out.println("A = " + Q3answerComplementA.toString());
+        System.out.println(Q3answerComplementA.toString());
         System.out.println();
         System.out.println();
         System.out.println("Question 3 - 'A UNION B' used Sets: ");
