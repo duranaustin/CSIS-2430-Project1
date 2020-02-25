@@ -25,7 +25,7 @@ public class ProjectOneQuestion_3 extends Calculate {
 
 
     public ProjectOneQuestion_3(){
-        setFuzzySets(10);
+        setFuzzySets(10); //static value n = 10
         initAnswerSets(); //initialize answer sets
         Q3answerComplementA = findComplementOfAFuzzySet(fuzzySetA, fuzzySetB, fuzzySetaArray, fuzzySetbArray); //find answer to  Q3 - '`A'
         Q3answerUnionAB = findUnionABFuzzySet(fuzzySetA, fuzzySetB, fuzzySetaArray, fuzzySetbArray); //find answer to Q3 - 'A U B'
