@@ -27,16 +27,15 @@ public class ProjectOneQuestion_3 extends Calculate {
     public ProjectOneQuestion_3(){
         setFuzzySets(10);
         initAnswerSets(); //initialize answer sets
-        Q3answerComplementA = findComplementOfAFuzzySet(fuzzySetA, fuzzySetB, fuzzySetaArray, fuzzySetbArray); //find answer to  Q3 - '`A'TODO
-        Q3answerUnionAB = findUnionABFuzzySet(fuzzySetA, fuzzySetB, fuzzySetaArray, fuzzySetbArray); //find answer to Q3 - 'A U B'TODO
-        Q3answerIntersectionAB = findIntersectionABFuzzySet(fuzzySetA, fuzzySetB, fuzzySetaArray, fuzzySetbArray); //find answer to Q3 - 'A ^ B'TODO
+        Q3answerComplementA = findComplementOfAFuzzySet(fuzzySetA, fuzzySetB, fuzzySetaArray, fuzzySetbArray); //find answer to  Q3 - '`A'
+        Q3answerUnionAB = findUnionABFuzzySet(fuzzySetA, fuzzySetB, fuzzySetaArray, fuzzySetbArray); //find answer to Q3 - 'A U B'
+        Q3answerIntersectionAB = findIntersectionABFuzzySet(fuzzySetA, fuzzySetB, fuzzySetaArray, fuzzySetbArray); //find answer to Q3 - 'A ^ B'
     }
 
     /**
      * Initialization of answer sets
      */
     private void initAnswerSets() {
-        //Question/Computer Project 1 - Subsets
         Q3answerComplementA = new HashSet();
         Q3answerUnionAB = new HashSet();
         Q3answerIntersectionAB = new HashSet();

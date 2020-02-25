@@ -40,7 +40,6 @@ public class ProjectOneQuestion_2 extends Calculate {
      * Initialization of answer sets
      */
     private void initAnswerSets() {
-        //Question/Computer Project 2 - Multisets
         Q2answerUnionAB = new ArrayList();
         Q2answerIntersectionAB = new ArrayList();
         Q2answerDifferenceAB= new ArrayList();

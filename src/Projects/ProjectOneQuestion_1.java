@@ -41,7 +41,6 @@ public class ProjectOneQuestion_1 extends Calculate {
      * Initialization of answer sets
      */
     private void initAnswerSets() {
-        //Question/Computer Project 1 - Subsets
         Q1answerComplementA = new HashSet();
         Q1answerUnionAB = new HashSet();
         Q1answerIntersectionAB = new HashSet();
