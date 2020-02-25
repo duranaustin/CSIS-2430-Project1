@@ -1,6 +1,11 @@
-
-.idea/workspace.xml
-*.xml
-*.kotlin_module
-.idea/workspace.xml
-*.xml
+build
+reports
+.gradle
+*.log
+.DS_Store
+*.ipr
+*.iml
+*.iws
+out
+.idea
+gradle.properties
